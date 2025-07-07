@@ -3,8 +3,12 @@ import Navbar from "./Navbar";
 import { albumsData, songsData } from "../assets/assets";
 import AlbumItem from "./AlbumItem";
 import SongItem from "./SongItem"; // Make sure this component exists
+import { useNavigate } from "react-router-dom";
 
 function DisplayHome() {
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -19,6 +23,7 @@ function DisplayHome() {
               name={item.name}
               desc={item.desc}
               image={item.image}
+              handleNavigation={() => navigate(`/album/${index}`)}
             />
           ))}
         </div>
